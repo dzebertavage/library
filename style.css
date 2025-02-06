@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    font-size: 3rem;
+    display: grid;
+    position: absolute;
+    padding: 5rem 20rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 90%;
+}
+
+.title-container {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 1 / 1;
+}
+
+.book-list-container {
+    background-color: yellow;
+    grid-column: 1 / 1;
+    grid-row: 2 / 3;
+}
+
+.book-button-container {
+    background-color: pink;
+    grid-column: 2 / 2;
+    grid-row: 2 / 3;
+}
