@@ -17,10 +17,10 @@ html {
     font-size: 3rem;
     display: grid;
     position: absolute;
-    padding: 2rem 20rem 5rem 20rem;
+    padding: 2rem 15rem 5rem 15rem;
     gap: 2rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10% 90%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 85% 5%;
 }
 
 .title-container {
@@ -35,15 +35,42 @@ html {
 .book-list-container {
     background-color: #fff;
     border-radius: 20px;
+    display: grid;
+    font-size: 1.5rem;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px auto;
     grid-column: 1 / 1;
     grid-row: 2 / 3;
+    padding: 0 1rem;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
 }
 
+.book-title-header {
+    align-self: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.author-header {
+    align-self: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.book-title-container {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.author-container {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
 .book-button-container {
     background-color: pink;
-    grid-column: 2 / 2;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
 }

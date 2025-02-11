@@ -5,6 +5,14 @@ const myLibrary = [
     {
         "title": "Second Book",
         "author": "Second Author"
+    },
+    {
+        "title": "Third Book",
+        "author": "Third Author"
+    },
+    {
+        "title": "Fourth Title",
+        "author": "Fourth Author"
     }
 ];
 
@@ -16,3 +24,11 @@ const myLibrary = [
 function addBookToLibrary() {
 
 }
+
+function printLibrary(myLibrary) {
+    for (i = myLibrary.length; i <= 0; i--) {
+
+    }
+}
+
+printLibrary(myLibrary);
