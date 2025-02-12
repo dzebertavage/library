@@ -6,7 +6,7 @@
 
 html {
     font-size: 18px;
-    font-family: "Noto Sans" Arial, Helvetica, sans-serif;
+    font-family: "Noto Sans", Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -17,7 +17,7 @@ html {
     font-size: 3rem;
     display: grid;
     position: absolute;
-    padding: 2rem 15rem 5rem 15rem;
+    padding: 2rem 15rem 7rem 15rem;
     gap: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: 10% 85% 5%;
@@ -65,12 +65,30 @@ html {
     grid-row: 2 / 3;
 }
 
+.book-title-container > div, .author-container > div {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
 .author-container {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
 .book-button-container {
-    background-color: pink;
+    display: grid;
     grid-row: 3 / 4;
+    align-self: center;
+    align-items: center;
+    justify-self: center;
+    justify-items: center;
+}
+
+.add-book {
+    font-size: 1rem;
+    border: 1px solid #737373;
+    border-radius: 20px;
+    background: transparent;
+    height: 50px;
+    width: 200px;
 }

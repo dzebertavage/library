@@ -1,17 +1,20 @@
+const bookTitleContainer = document.querySelector(".book-title-container");
+const authorContainer = document.querySelector(".author-container");
+
 const myLibrary = [
-    {"title": "First Book",
-        "author": "First Author"
+    {   "title": "Apathy and Other Small Victories",
+        "author": "Paul Neilan"
     },
     {
-        "title": "Second Book",
-        "author": "Second Author"
+        "title": "Democracy or Else",
+        "author": "Jon Favreau, Jon Lovett, Tommy Vietor"
     },
     {
         "title": "Third Book",
         "author": "Third Author"
     },
     {
-        "title": "Fourth Title",
+        "title": "Fourth Book",
         "author": "Fourth Author"
     }
 ];
@@ -25,10 +28,27 @@ function addBookToLibrary() {
 
 }
 
-function printLibrary(myLibrary) {
-    for (i = myLibrary.length; i <= 0; i--) {
-
+function printTitles(myLibrary) {
+    for (i = 0; i < myLibrary.length; i++) {
+        const newDiv = document.createElement("div");
+        bookTitleContainer.appendChild(newDiv);
+        newDiv.textContent = myLibrary[i].title;
     }
+}
+
+function printAuthors(myLibrary) {
+    for (i = 0; i < myLibrary.length; i++) {
+        const newDiv = document.createElement("div");
+        authorContainer.appendChild(newDiv);
+        newDiv.textContent = myLibrary[i].author;
+    }
+}
+
+function printLibrary(myLibrary) {
+    bookTitleContainer.innerHTML = "";
+    authorContainer.innerHTML = "";
+    printTitles(myLibrary);
+    printAuthors(myLibrary);
 }
 
 printLibrary(myLibrary);
