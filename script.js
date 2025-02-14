@@ -1,5 +1,7 @@
 const bookTitleContainer = document.querySelector(".book-title-container");
 const authorContainer = document.querySelector(".author-container");
+const addBookButton = document.querySelector(".add-book");
+const addBookDialog = document.querySelector("#addBook");
 
 const myLibrary = [
     {   "title": "Apathy and Other Small Victories",
@@ -19,10 +21,6 @@ const myLibrary = [
     }
 ];
 
-// function Book(title, author) {
-//     this.title = title;
-//     this.author = author;
-// }
 
 function addBookToLibrary() {
 
@@ -52,3 +50,7 @@ function printLibrary(myLibrary) {
 }
 
 printLibrary(myLibrary);
+
+addBookButton.addEventListener("click", () => {
+    addBookDialog.showModal();
+});

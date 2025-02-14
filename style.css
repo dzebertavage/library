@@ -92,3 +92,89 @@ html {
     height: 50px;
     width: 200px;
 }
+
+#addBook {
+    align-self: center;
+    justify-self: center;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 2rem;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+}
+
+#addBook::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form-fields-container {
+    display: grid;
+    gap: 2rem 1rem;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+input[type="text"] {
+    border: none;
+    background-color: #ededed;
+    border-radius: 10px;
+    font-size: 1rem;
+    max-width: 100%;
+    min-width: 50px;
+}
+
+input[type="text"]::placeholder {
+    color: #adadad;
+}
+
+input[type="text"]:focus {
+    border: 2px solid rgb(101, 101, 101);
+    outline: none;
+}
+
+#newBookTitleLabel {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+#newBookTitle {
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    padding: 10px;
+}
+
+#newAuthorLabel {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+#newAuthor {
+    grid-row: 2 / 3;
+    grid-column: 2 / 4;
+    padding: 10px;
+}
+
+#submitButton {
+    border: none;
+    background-color: #8beb9f;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#cancelButton {
+    background-color: #ededed;
+    border: none;
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
