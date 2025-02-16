@@ -1,5 +1,7 @@
 const bookTitleContainer = document.querySelector(".book-title-container");
 const authorContainer = document.querySelector(".author-container");
+const deleteContainer = document.querySelector(".delete-container");
+// const readContainer = document.querySelector(".read-container");
 const addBookButton = document.querySelector(".add-book");
 const addBookDialog = document.querySelector("#addBook");
 const submitButton = document.querySelector("#submitButton");
@@ -7,13 +9,13 @@ const cancelButton = document.querySelector("#cancelButton");
 
 const myLibrary = [
     {   "index": "0",
-        "title": "Apathy and Other Small Victories",
+        "title": "Apathy",
         "author": "Paul Neilan"
     },
     {
         "index": "1",
         "title": "Democracy or Else",
-        "author": "Jon Favreau, Jon Lovett, Tommy Vietor"
+        "author": "Jon Favreau"
     },
     {
         "index": "2",
@@ -31,6 +33,24 @@ const myLibrary = [
 function addBookToLibrary() {
 
 }
+
+function printDeleteButtons(myLibrary){
+    for (i = 0; i < myLibrary.length; i++) {
+        const newDiv = document.createElement("div");
+        const newDeleteButton = document.createElement("button");
+        deleteContainer.appendChild(newDiv);
+        newDiv.appendChild(newDeleteButton);
+        newDeleteButton.textContent = "X";
+        newDeleteButton.classList.add("delete-button");
+    }
+}
+
+// function printReadButtons(myLibrary) {
+//     for (i = 0; i < myLibrary.length; i++) {
+//         const newDiv = document.createElement("div");
+//         const newReadButton = document.createElement("button");
+//     }
+// }
 
 function printTitles(myLibrary) {
     for (i = 0; i < myLibrary.length; i++) {
@@ -53,6 +73,7 @@ function printLibrary(myLibrary) {
     authorContainer.innerHTML = "";
     printTitles(myLibrary);
     printAuthors(myLibrary);
+    printDeleteButtons(myLibrary);
 }
 
 printLibrary(myLibrary);
