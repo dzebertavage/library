@@ -38,7 +38,7 @@ html {
     display: grid;
     font-size: 1.5rem;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 10fr 10fr 1fr 1fr;
     grid-template-rows: 60px auto;
     grid-column: 1 / 1;
     grid-row: 2 / 3;
@@ -72,6 +72,28 @@ html {
 
 .author-container {
     grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.read-header {
+    align-self: center;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.read-container {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.delete-header {
+    align-self: center;
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+.delete-container {
+    grid-column: 4 / 5;
     grid-row: 2 / 3;
 }
 

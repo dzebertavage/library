@@ -2,20 +2,26 @@ const bookTitleContainer = document.querySelector(".book-title-container");
 const authorContainer = document.querySelector(".author-container");
 const addBookButton = document.querySelector(".add-book");
 const addBookDialog = document.querySelector("#addBook");
+const submitButton = document.querySelector("#submitButton");
+const cancelButton = document.querySelector("#cancelButton");
 
 const myLibrary = [
-    {   "title": "Apathy and Other Small Victories",
+    {   "index": "0",
+        "title": "Apathy and Other Small Victories",
         "author": "Paul Neilan"
     },
     {
+        "index": "1",
         "title": "Democracy or Else",
         "author": "Jon Favreau, Jon Lovett, Tommy Vietor"
     },
     {
+        "index": "2",
         "title": "Third Book",
         "author": "Third Author"
     },
     {
+        "index": "3",
         "title": "Fourth Book",
         "author": "Fourth Author"
     }
