@@ -1,7 +1,7 @@
 const bookTitleContainer = document.querySelector(".book-title-container");
 const authorContainer = document.querySelector(".author-container");
 const deleteContainer = document.querySelector(".delete-container");
-// const readContainer = document.querySelector(".read-container");
+const readContainer = document.querySelector(".read-container");
 const addBookButton = document.querySelector(".add-book");
 const addBookDialog = document.querySelector("#addBook");
 const submitButton = document.querySelector("#submitButton");
@@ -45,12 +45,15 @@ function printDeleteButtons(myLibrary){
     }
 }
 
-// function printReadButtons(myLibrary) {
-//     for (i = 0; i < myLibrary.length; i++) {
-//         const newDiv = document.createElement("div");
-//         const newReadButton = document.createElement("button");
-//     }
-// }
+function printReadButtons(myLibrary) {
+    for (i = 0; i < myLibrary.length; i++) {
+        const newDiv = document.createElement("div");
+        const newReadButton = document.createElement("button");
+        readContainer.appendChild(newDiv);
+        newDiv.appendChild(newReadButton);
+        newReadButton.classList.add("read-button");
+    }
+}
 
 function printTitles(myLibrary) {
     for (i = 0; i < myLibrary.length; i++) {
@@ -73,6 +76,7 @@ function printLibrary(myLibrary) {
     authorContainer.innerHTML = "";
     printTitles(myLibrary);
     printAuthors(myLibrary);
+    printReadButtons(myLibrary)
     printDeleteButtons(myLibrary);
 }
 
