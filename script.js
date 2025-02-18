@@ -89,3 +89,7 @@ addBookButton.addEventListener("click", () => {
 cancelButton.addEventListener("click", () => {
     addBookDialog.close();
 });
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+});
