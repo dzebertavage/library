@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 html {
@@ -186,7 +188,7 @@ html {
     display: grid;
     gap: 2rem 1rem;
     grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 45px);
     align-items: center;
 }
 

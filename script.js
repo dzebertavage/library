@@ -85,3 +85,7 @@ printLibrary(myLibrary);
 addBookButton.addEventListener("click", () => {
     addBookDialog.showModal();
 });
+
+cancelButton.addEventListener("click", () => {
+    addBookDialog.close();
+});
