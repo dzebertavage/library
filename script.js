@@ -7,25 +7,45 @@ const addBookDialog = document.querySelector("#addBook");
 const submitButton = document.querySelector("#submitButton");
 const cancelButton = document.querySelector("#cancelButton");
 
+let newBook = {
+    "index": undefined,
+    "title": undefined,
+    "author": undefined,
+    "read": undefined
+};
+
+function clearStoredBook(newBook) {
+    newBook = {
+        "index": undefined,
+        "title": undefined,
+        "author": undefined,
+        "read": undefined
+    };
+}
+
 const myLibrary = [
     {   "index": "0",
         "title": "Apathy",
-        "author": "Paul Neilan"
+        "author": "Paul Neilan",
+        "read": "false"
     },
     {
         "index": "1",
         "title": "Democracy or Else",
-        "author": "Jon Favreau"
+        "author": "Jon Favreau",
+        "read": "false"
     },
     {
         "index": "2",
         "title": "Third Book",
-        "author": "Third Author"
+        "author": "Third Author",
+        "read": "false"
     },
     {
         "index": "3",
         "title": "Fourth Book",
-        "author": "Fourth Author"
+        "author": "Fourth Author",
+        "read": "false"
     }
 ];
 
@@ -91,5 +111,6 @@ cancelButton.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", (event) => {
+    
     event.preventDefault();
 });
