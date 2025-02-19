@@ -6,12 +6,14 @@ const addBookButton = document.querySelector(".add-book");
 const addBookDialog = document.querySelector("#addBook");
 const submitButton = document.querySelector("#submitButton");
 const cancelButton = document.querySelector("#cancelButton");
+const newBookTitleField = document.querySelector("#newBookTitle");
+const newAuthorField = document.querySelector("#newAuthor");
 
 let newBook = {
     "index": undefined,
     "title": undefined,
     "author": undefined,
-    "read": undefined
+    "read": false
 };
 
 function clearStoredBook(newBook) {
@@ -19,7 +21,7 @@ function clearStoredBook(newBook) {
         "index": undefined,
         "title": undefined,
         "author": undefined,
-        "read": undefined
+        "read": false
     };
 }
 
@@ -111,6 +113,8 @@ cancelButton.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", (event) => {
-    
+    newBook["index"] = myLibrary.length;
+    newBook["title"] = newBookTitleField.value;
+    newBook["author"] = newAuthorField.value;
     event.preventDefault();
 });
