@@ -108,6 +108,11 @@ function getNewBookInfo(newBook) {
     return newBook;
 }
 
+function clearNewBookFields() {
+    newBookTitleField.value = "";
+    newAuthorField.value = "";
+}
+
 printLibrary(myLibrary);
 
 addBookButton.addEventListener("click", () => {
@@ -115,15 +120,23 @@ addBookButton.addEventListener("click", () => {
 });
 
 cancelButton.addEventListener("click", () => {
+    clearNewBookFields();
     addBookDialog.close();
 });
 
 submitButton.addEventListener("click", (event) => {
     getNewBookInfo(newBook);
     addBookToLibrary(newBook);
-    newBookTitleField.value = "";
-    newAuthorField.value = "";
+    clearNewBookFields();
     addBookDialog.close();
     newBook = clearStoredBook(newBook);
     event.preventDefault();
+});
+
+window.addEventListener("keydown", (e) => {
+    if (addBookDialog.hasAttribute("open")) {
+        if (e.key === "Escape") {
+            clearNewBookFields();
+        }
+    }
 });
