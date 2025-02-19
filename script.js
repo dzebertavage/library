@@ -16,15 +16,6 @@ let newBook = {
     "read": false
 };
 
-function clearStoredBook(newBook) {
-    newBook = {
-        "index": undefined,
-        "title": undefined,
-        "author": undefined,
-        "read": false
-    };
-}
-
 const myLibrary = [
     {   "index": "0",
         "title": "Apathy",
@@ -51,8 +42,16 @@ const myLibrary = [
     }
 ];
 
+function clearStoredBook(newBook) {
+    return newBook = {
+        "index": undefined,
+        "title": undefined,
+        "author": undefined,
+        "read": false
+    };
+}
 
-function addBookToLibrary() {
+function addBookToLibrary(newBook) {
 
 }
 
@@ -102,6 +101,13 @@ function printLibrary(myLibrary) {
     printDeleteButtons(myLibrary);
 }
 
+function getNewBookInfo(newBook) {
+    newBook["index"] = myLibrary.length;
+    newBook["title"] = newBookTitleField.value;
+    newBook["author"] = newAuthorField.value;
+    return newBook;
+}
+
 printLibrary(myLibrary);
 
 addBookButton.addEventListener("click", () => {
@@ -113,8 +119,11 @@ cancelButton.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", (event) => {
-    newBook["index"] = myLibrary.length;
-    newBook["title"] = newBookTitleField.value;
-    newBook["author"] = newAuthorField.value;
+    getNewBookInfo(newBook);
+    addBookToLibrary(newBook);
+    newBookTitleField.value = "";
+    newAuthorField.value = "";
+    addBookDialog.close();
+    newBook = clearStoredBook(newBook);
     event.preventDefault();
 });
