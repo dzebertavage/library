@@ -17,28 +17,28 @@ let newBook = {
 };
 
 const myLibrary = [
-    {   "index": "0",
+    {   "index": 0,
         "title": "Apathy",
         "author": "Paul Neilan",
-        "read": "false"
+        "read": false
     },
     {
-        "index": "1",
+        "index": 1,
         "title": "Democracy or Else",
         "author": "Jon Favreau",
-        "read": "false"
+        "read": false
     },
     {
-        "index": "2",
+        "index": 2,
         "title": "Third Book",
         "author": "Third Author",
-        "read": "false"
+        "read": false
     },
     {
-        "index": "3",
+        "index": 3,
         "title": "Fourth Book",
         "author": "Fourth Author",
-        "read": "false"
+        "read": false
     }
 ];
 
@@ -49,10 +49,6 @@ function clearStoredBook(newBook) {
         "author": undefined,
         "read": false
     };
-}
-
-function addBookToLibrary(newBook) {
-
 }
 
 function printDeleteButtons(myLibrary){
@@ -105,12 +101,21 @@ function getNewBookInfo(newBook) {
     newBook["index"] = myLibrary.length;
     newBook["title"] = newBookTitleField.value;
     newBook["author"] = newAuthorField.value;
+    newBook["read"] = false;
     return newBook;
 }
 
 function clearNewBookFields() {
     newBookTitleField.value = "";
     newAuthorField.value = "";
+}
+
+function removeAllBooks(myLibrary) {
+    bookTitleContainer.textContent = "";
+    authorContainer.textContent = "";
+    readContainer.textContent = "";
+    deleteContainer.textContent = "";
+    printLibrary(myLibrary);
 }
 
 printLibrary(myLibrary);
@@ -125,10 +130,12 @@ cancelButton.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", (event) => {
-    getNewBookInfo(newBook);
-    addBookToLibrary(newBook);
-    clearNewBookFields();
     addBookDialog.close();
+    getNewBookInfo(newBook);
+    myLibrary.push(newBook);
+    clearNewBookFields();
+    // addBookDialog.close();
+    removeAllBooks(myLibrary);
     newBook = clearStoredBook(newBook);
     event.preventDefault();
 });
