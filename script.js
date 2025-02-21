@@ -10,32 +10,29 @@ const newBookTitleField = document.querySelector("#newBookTitle");
 const newAuthorField = document.querySelector("#newAuthor");
 
 let newBook = {
-    "index": undefined,
     "title": undefined,
     "author": undefined,
     "read": false
 };
 
+// const myLibrary = [];
+
 const myLibrary = [
-    {   "index": 0,
-        "title": "Apathy",
+    {   "title": "Apathy",
         "author": "Paul Neilan",
         "read": false
     },
     {
-        "index": 1,
         "title": "Democracy or Else",
         "author": "Jon Favreau",
         "read": false
     },
     {
-        "index": 2,
         "title": "Third Book",
         "author": "Third Author",
         "read": false
     },
     {
-        "index": 3,
         "title": "Fourth Book",
         "author": "Fourth Author",
         "read": false
@@ -44,7 +41,6 @@ const myLibrary = [
 
 function clearStoredBook(newBook) {
     return newBook = {
-        "index": undefined,
         "title": undefined,
         "author": undefined,
         "read": false
@@ -59,6 +55,7 @@ function printDeleteButtons(myLibrary){
         newDiv.appendChild(newDeleteButton);
         newDeleteButton.textContent = "X";
         newDeleteButton.classList.add("delete-button");
+        newDeleteButton.id = myLibrary.indexOf(myLibrary[i]);
     }
 }
 
@@ -89,8 +86,8 @@ function printAuthors(myLibrary) {
 }
 
 function printLibrary(myLibrary) {
-    bookTitleContainer.innerHTML = "";
-    authorContainer.innerHTML = "";
+    bookTitleContainer.textContent = "";
+    authorContainer.textContent = "";
     printTitles(myLibrary);
     printAuthors(myLibrary);
     printReadButtons(myLibrary)
@@ -98,7 +95,6 @@ function printLibrary(myLibrary) {
 }
 
 function getNewBookInfo(newBook) {
-    newBook["index"] = myLibrary.length;
     newBook["title"] = newBookTitleField.value;
     newBook["author"] = newAuthorField.value;
     newBook["read"] = false;
@@ -116,6 +112,17 @@ function removeAllBooks(myLibrary) {
     readContainer.textContent = "";
     deleteContainer.textContent = "";
     printLibrary(myLibrary);
+    reIdDelete(myLibrary);
+}
+
+function reIdDelete(myLibrary) {
+    const deleteButton = document.querySelectorAll(".delete-button").forEach(item => {
+        item.addEventListener("click", () => {
+            let bookIndex = Number(item.id);
+            myLibrary.splice(bookIndex, 1);
+            removeAllBooks(myLibrary);
+        });
+    });
 }
 
 printLibrary(myLibrary);
@@ -134,7 +141,6 @@ submitButton.addEventListener("click", (event) => {
     getNewBookInfo(newBook);
     myLibrary.push(newBook);
     clearNewBookFields();
-    // addBookDialog.close();
     removeAllBooks(myLibrary);
     newBook = clearStoredBook(newBook);
     event.preventDefault();
@@ -146,4 +152,14 @@ window.addEventListener("keydown", (e) => {
             clearNewBookFields();
         }
     }
+});
+
+window.addEventListener("load", () => {
+    const deleteButton = document.querySelectorAll(".delete-button").forEach(item => {
+        item.addEventListener("click", () => {
+            let bookIndex = Number(item.id);
+            myLibrary.splice(bookIndex, 1);
+            removeAllBooks(myLibrary);
+        });
+    });
 });
