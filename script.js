@@ -8,6 +8,7 @@ const submitButton = document.querySelector("#submitButton");
 const cancelButton = document.querySelector("#cancelButton");
 const newBookTitleField = document.querySelector("#newBookTitle");
 const newAuthorField = document.querySelector("#newAuthor");
+const readButton = document.querySelector(".read-button");
 
 let newBook = {
     "title": undefined,
@@ -17,7 +18,7 @@ let newBook = {
 
 // const myLibrary = [];
 
-const myLibrary = [
+let myLibrary = [
     {   "title": "Apathy",
         "author": "Paul Neilan",
         "read": false
@@ -66,6 +67,11 @@ function printReadButtons(myLibrary) {
         readContainer.appendChild(newDiv);
         newDiv.appendChild(newReadButton);
         newReadButton.classList.add("read-button");
+        newReadButton.id = "a" + myLibrary.indexOf(myLibrary[i]);
+        if (myLibrary[i].read === true) {
+            const readButtonStyle = document.querySelector(`#a${i}`);
+            readButtonStyle.style.backgroundColor = "green";
+        }
     }
 }
 
@@ -160,6 +166,17 @@ window.addEventListener("load", () => {
             let bookIndex = Number(item.id);
             myLibrary.splice(bookIndex, 1);
             removeAllBooks(myLibrary);
+        });
+    });
+    const readButton = document.querySelectorAll(".read-button").forEach(item => {
+        item.addEventListener("click", () => {
+            let bookIndex = item.id;
+            const readButtonStyle = document.querySelector(`#${bookIndex}`);
+            let bookIndexNum = Number(bookIndex.replace(/\D/g, ''));
+            if (myLibrary[bookIndexNum].read === false) {
+                myLibrary[bookIndexNum].read = true;
+                readButtonStyle.style.backgroundColor = "green";
+            }
         });
     });
 });
