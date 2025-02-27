@@ -19,13 +19,13 @@ let newBook = {
 // const myLibrary = [];
 
 let myLibrary = [
-    {   "title": "Apathy",
-        "author": "Paul Neilan",
+    {   "title": "First Book",
+        "author": "First Author",
         "read": false
     },
     {
-        "title": "Democracy or Else",
-        "author": "Jon Favreau",
+        "title": "Second Book",
+        "author": "Second Author",
         "read": false
     },
     {
@@ -36,6 +36,16 @@ let myLibrary = [
     {
         "title": "Fourth Book",
         "author": "Fourth Author",
+        "read": false
+    },
+    {
+        "title": "Fifth Book",
+        "author": "Fifth Author",
+        "read": false
+    },
+    {
+        "title": "Sixth Book",
+        "author": "Sixth Author",
         "read": false
     }
 ];
@@ -119,6 +129,20 @@ function removeAllBooks(myLibrary) {
     deleteContainer.textContent = "";
     printLibrary(myLibrary);
     reIdDelete(myLibrary);
+    const readButton = document.querySelectorAll(".read-button").forEach(item => {
+        item.addEventListener("click", () => {
+            let bookIndex = item.id;
+            const readButtonStyle = document.querySelector(`#${bookIndex}`);
+            let bookIndexNum = Number(bookIndex.replace(/\D/g, ''));
+            if (myLibrary[bookIndexNum].read === false) {
+                myLibrary[bookIndexNum].read = true;
+                readButtonStyle.style.backgroundColor = "green";
+            } else {
+                myLibrary[bookIndexNum].read = false;
+                readButtonStyle.style.backgroundColor = "#d7d7d7";
+            }
+        });
+    });
 }
 
 function reIdDelete(myLibrary) {
@@ -176,6 +200,9 @@ window.addEventListener("load", () => {
             if (myLibrary[bookIndexNum].read === false) {
                 myLibrary[bookIndexNum].read = true;
                 readButtonStyle.style.backgroundColor = "green";
+            } else {
+                myLibrary[bookIndexNum].read = false;
+                readButtonStyle.style.backgroundColor = "#d7d7d7";
             }
         });
     });
